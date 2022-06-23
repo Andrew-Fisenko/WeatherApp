@@ -14,6 +14,7 @@ import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.databinding.FragmentMainBinding
 import com.example.weatherapp.viewmodel.AppState
 import com.example.weatherapp.viewmodel.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class MainFragment: Fragment() {
 
@@ -59,12 +60,12 @@ class MainFragment: Fragment() {
             is AppState.Success -> {
                 binding.loadingLayout.visibility = View.GONE
                 binding.message.text = "OK"
+                Snackbar.make(binding.mainView, "Success", Snackbar.LENGTH_LONG).show()
             }
 
         }
 
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
